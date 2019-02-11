@@ -1,7 +1,6 @@
 package licenta;
 
 import javafx.embed.swing.SwingFXUtils;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,14 +15,14 @@ public class SceneController{
 
     @FXML
     private ImageView myImageView;
-    BufferedImage img;
+    private BufferedImage img;
 
     //@Override
     //public void initialize(URL location, ResourceBundle resources) {
     //}
 
     @FXML //for each fx:id=
-    private void loadimg(ActionEvent event) {
+    private void loadimg() {
         FileChooser file = new FileChooser();
         file.setInitialDirectory(new File("D:\\personale\\fac\\lic"));
         File file1 = file.showOpenDialog(null);
