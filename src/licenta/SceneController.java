@@ -15,7 +15,7 @@ public class SceneController{
 
     @FXML
     private ImageView myImageView,myImageView1;
-    BufferedImage img;
+    private BufferedImage img;
 
     //@Override
     //public void initialize(URL location, ResourceBundle resources) {

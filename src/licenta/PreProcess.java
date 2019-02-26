@@ -9,7 +9,6 @@ import java.io.IOException;
 public class PreProcess {
 
     public BufferedImage l, o, img;
-
     public BufferedImage luminance(BufferedImage original) {
 
         BufferedImage lumi = new BufferedImage(original.getWidth(), original.getHeight(), original.getType());
@@ -31,7 +30,6 @@ public class PreProcess {
 
     // Convert R, G, B, Alpha to standard 8 bit (1 byte = 8 bits) (xxxx xxxY for << 8)
     private static int toRGB(int alpha, int red, int green, int blue) {
-
         int newPixel = 0;
         newPixel += alpha;
         newPixel = newPixel << 8;
