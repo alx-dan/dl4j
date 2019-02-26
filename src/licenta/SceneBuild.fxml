@@ -6,7 +6,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="licenta.SceneController">
 
-    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadimg" text="Load Image"/>
-    <ImageView fx:id="myImageView" fitHeight="400.0" fitWidth="400.0" layoutX="14.0" layoutY="75.0" pickOnBounds="true"/>
+    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadimg" text="Load Image" />
+    <Button layoutX="123.0" layoutY="14.0" mnemonicParsing="false" onAction="#processimg" text="Process Image" />
+
+    <ImageView fx:id="myImageView" fitHeight="300.0" fitWidth="300.0" layoutX="14.0" layoutY="75.0" pickOnBounds="true" />
+    <ImageView fx:id="myImageView1" fitHeight="300.0" fitWidth="300.0" layoutX="314.0" layoutY="75.0" pickOnBounds="true" />
 
 </AnchorPane>

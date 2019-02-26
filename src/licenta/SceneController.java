@@ -14,8 +14,8 @@ import java.io.IOException;
 public class SceneController{
 
     @FXML
-    private ImageView myImageView;
-    private BufferedImage img;
+    private ImageView myImageView,myImageView1;
+    BufferedImage img;
 
     //@Override
     //public void initialize(URL location, ResourceBundle resources) {
@@ -31,9 +31,16 @@ public class SceneController{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Image image  = SwingFXUtils.toFXImage(img,null); // ???
+        Image image  = SwingFXUtils.toFXImage(img,null);
         myImageView.setImage(image);
     }
 
+    @FXML
+    private void processimg(){
+        PreProcess p = new PreProcess(img);
+        Image imageL  = SwingFXUtils.toFXImage(p.luminance(p.o),null);
+        myImageView1.setImage(imageL);
+
+    }
     }
 
