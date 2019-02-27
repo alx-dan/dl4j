@@ -8,38 +8,24 @@ import java.io.IOException;
 
 public class PreProcess {
 
-    public BufferedImage l, o, img;
-    public BufferedImage luminance(BufferedImage original) {
+    public BufferedImage l, o;
+    public BufferedImage togray(BufferedImage original) {
 
-        BufferedImage lumi = new BufferedImage(original.getWidth(), original.getHeight(), original.getType());
+        BufferedImage image = new BufferedImage(original.getWidth(), original.getHeight(), original.getType());
         for (int i = 0; i < original.getWidth(); i++) {
             for (int j = 0; j < original.getHeight(); j++) {
-                //GET THE RGB PIXELS
-                int alpha = new Color(original.getRGB(i, j)).getAlpha(); //sRGB transparency 0-1 or 0-255
-                int red = new Color(original.getRGB(i, j)).getRed();
-                int green = new Color(original.getRGB(i, j)).getGreen();
-                int blue = new Color(original.getRGB(i, j)).getBlue();
-
-                int x = (int) (0.21 * red + 0.71 * green + 0.07 * blue); //converted to integer
-                int newPixel = toRGB(alpha, x, x, x); // return back to original
-                lumi.setRGB(i, j, newPixel); // write pixel
+                Color c = new Color(original.getRGB(i, j)); //get grb pixels
+                int red = (int)(c.getRed()*0.21); //converted to integer
+                int green = (int)(c.getGreen()*0.71);
+                int blue = (int)(c.getBlue()*0.07);
+                Color newColor = new Color(red+green+blue,red+green+blue,red+green+blue); // return to original
+                image.setRGB(i, j, newColor.getRGB()); // write pixel
             }
         }
-        return lumi;
+        return image;
     }
 
-    // Convert R, G, B, Alpha to standard 8 bit (1 byte = 8 bits) (xxxx xxxY for << 8)
-    private static int toRGB(int alpha, int red, int green, int blue) {
-        int newPixel = 0;
-        newPixel += alpha;
-        newPixel = newPixel << 8;
-        newPixel += red;
-        newPixel = newPixel << 8;
-        newPixel += green;
-        newPixel = newPixel << 8;
-        newPixel += blue;
-        return newPixel;
-    }
+
 
 
 
@@ -58,6 +44,6 @@ public class PreProcess {
 
     public void main(String[] args) {
         PreProcess alx = new PreProcess("original"+".jpg");
-        l = alx.luminance(o);
+        l = alx.togray(o);
     }
 }
