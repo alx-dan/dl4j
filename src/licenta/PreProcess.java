@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+@SuppressWarnings("WeakerAccess")
 public class PreProcess {
 
     public BufferedImage orig;
@@ -32,7 +33,7 @@ public class PreProcess {
 
 
 
-    public PreProcess (BufferedImage img) { orig = img;};
+    public PreProcess (BufferedImage img) { orig = img;}
     public PreProcess (String path){
         File source = new File(path);
         try {
