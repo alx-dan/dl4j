@@ -38,7 +38,7 @@ public class SceneController{
     @FXML
     private void processimg(){
         PreProcess p = new PreProcess(img);
-        Image imageL  = SwingFXUtils.toFXImage(p.togray(p.o),null);
+        Image imageL  = SwingFXUtils.toFXImage(p.togray(p.orig),null);
         myImageView1.setImage(imageL);
 
     }
