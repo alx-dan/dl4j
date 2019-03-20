@@ -37,13 +37,17 @@ public class SceneController{
 
     @FXML
     private void processimg(){
-        PreProcess p = new PreProcess(img);
+        Process p = new Process(img);
 
-        Image imageG  = SwingFXUtils.toFXImage(p.togray(p.orig),null);
+        p.gray = p.togray(p.orig);
+        Image imageG = SwingFXUtils.toFXImage(p.gray,null);
         myImageView1.setImage(imageG);
 
-        Image imageB = SwingFXUtils.toFXImage(p.tobinary(p.togray(p.orig)), null);
+        p.binar = p.tobinary(p.gray);
+        Image imageB = SwingFXUtils.toFXImage(p.binar, null);
         myImageView2.setImage(imageB);
+
+        p.seg();
     }
     }
 
