@@ -31,12 +31,14 @@ public class Process {
     private int [][]visit = new int [1000][1000]; //highest image in pixels
     private static final int squareSize = 28;
     private static double [][]o = new double[squareSize][squareSize];
-    private int []dfsx = {0, 0, 1, -1, 1, 1, -1, -1};//for moving x dir
-    private int []dfsy = {1, -1, 0, 0, 1, -1, -1, 1};//for moving y dir
+    private int []dfsx = {0, 0, 1, -1, 1, 1, -1, -1};// moving x dir
+    private int []dfsy = {1, -1, 0, 0, 1, -1, -1, 1};// moving y dir
     //private static ArrayList<BufferedImage> imDbg = new ArrayList<>();
     public ArrayList<ArrayList<Double> >out = new ArrayList<>();
 
-//image pre-precessing
+//image pre-processing
+//    ---------------------------------------------------------------------------------   //
+//image pre-processing
 
     public BufferedImage togray(BufferedImage original) {
         BufferedImage image = new BufferedImage(original.getWidth(), original.getHeight(), original.getType());
@@ -110,6 +112,8 @@ public class Process {
     }
 
 // image segmentation
+//    ---------------------------------------------------------------------------------   //
+// image segmentation
 
     public void seg() {
           System.out.println("Height & Width: " + binar.getHeight() + " " + binar.getWidth());
@@ -132,12 +136,10 @@ public class Process {
         //out of boundaries ?
         return x < 0 || y < 0 || y >= binar.getHeight() || x >= binar.getWidth() || visit[x][y] == 1 || !black(binar, x, y);
     }
-
     private Boolean black(BufferedImage input,int x, int y){
         int red = new Color(input.getRGB(x,y)).getRed();
         return red == 0; //0.0.0 is black
     }
-
     private void clr (int id){
         x1[id]=10000;
         y1[id]=10000;
@@ -151,13 +153,11 @@ public class Process {
                 o[i][j]=0;
             }
     }
-
     private void clrImg (BufferedImage input){
         Graphics2D graphic = input.createGraphics();
         graphic.setPaint(new Color(255,255,255)); //white fill
         graphic.fillRect(0,0,input.getWidth(),input.getHeight());
     }
-
     private void box (int x, int y, int id){ //breadth first search
         int safe = Math.max(binar.getWidth(),binar.getHeight()); //max dimensions
         Queue<par> q =  new LinkedList<>();//holding elements prior to processing in a doubly-linked list
@@ -183,14 +183,12 @@ public class Process {
                     q.add(new par(X+dfsx[i]*j,Y+dfsy[i]*j));//throught all 4 dir
         }
     }
-
     private void sBlack (BufferedImage input, int x, int y){
         if(x<0||y<0||x>=input.getWidth()||y>=input.getHeight())
             return;
         Color c = new Color(0,0,0);
         input.setRGB(x,y,c.getRGB()); //black pixel
     }
-
     private void bld (BufferedImage input, int x, int y){
         for (int i = 0; i < 8; i++)
             for (int j = 0; j <=2 ; j++)
@@ -208,7 +206,6 @@ public class Process {
         arrayLst();
         //imDbg.add(img);
     }
-
     private void array(){
         for (int i = 0; i < img.getWidth(); i++) {
             for (int j = 0; j < img.getHeight(); j++) {
@@ -218,7 +215,6 @@ public class Process {
             }
         }
     }
-
     private void arrayLst(){
         clrImg(img);
         for (int i = 0; i < squareSize; i++)
@@ -238,7 +234,6 @@ public class Process {
         }
         out.add(pixel);
     }
-
     private void centr(){
         int left = 50, right = -50, up = 50, down = -50, shiftX, shiftY;
         for(int i = 0; i < squareSize; i++)
@@ -257,7 +252,6 @@ public class Process {
         for(int i = 0; i < squareSize; i++)
             System.arraycopy(temp[i], 0, o[i], 0, squareSize);
     }
-
     private void print(){
         for (int i = 0; i < squareSize; i++) {
             for (int j = 0; j < squareSize; j++)
