@@ -4,7 +4,9 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -21,6 +23,7 @@ public class Process {
             this.s = s;
         }
     }
+
 
     public BufferedImage orig,gray,binar,img;
     private int id;
@@ -125,6 +128,7 @@ public class Process {
                     box(i, j, id);
                     fin(id);
                     print();
+                    csv();
                     id++;
                 }
             }
@@ -200,10 +204,20 @@ public class Process {
         img = Scalr.crop(img, Math.max(x1[id],0),Math.max(y1[id],0),m,m);
         img = Scalr.resize(img,Scalr.Method.ULTRA_QUALITY,20,20,Scalr.OP_ANTIALIAS,Scalr.OP_BRIGHTER);
         System.out.println("After crop & resize: " + img.getWidth() + " " + img.getHeight());
+        try {
+            ImageIO.write(img, "jpg", new File("./images/" + "brut" + id + ".jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         array();
         centr();
         img = Scalr.pad(img,4,Color.WHITE);
         arrayLst();
+        try {
+            ImageIO.write(img, "jpg", new File("./images/" + id + ".jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //imDbg.add(img);
     }
     private void array(){
@@ -262,6 +276,20 @@ public class Process {
             System.out.println();
         }
         System.out.println("=======================================");
+    }
+
+    private void csv(){
+        try(PrintWriter writter = new PrintWriter(new File("./segm/test"+id+".csv"))) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < squareSize; i++) {
+                for (int j = 0; j < squareSize; j++)
+                    if (o[i][j] > 0.5)
+                        sb.append("1,");
+                    else
+                        sb.append("0,");
+            }
+            writter.write(sb.substring(0,sb.length() - 1 ));
+        }catch (FileNotFoundException e){System.out.println(e.getMessage());}
     }
 
     public Process(BufferedImage img) { orig = img;}

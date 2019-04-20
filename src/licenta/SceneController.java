@@ -8,14 +8,16 @@ import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 
 public class SceneController{
 
     @FXML
-    private ImageView myImageView, myImageView1, myImageView2;
-    private BufferedImage img;
+    private ImageView myImageView,myImageView1,myImageView2,processed1,processed2,processed3,processed11,processed21,processed31;
+    private BufferedImage img,img1,img2,img3,img11,img21,img31;
 
     //@Override
     //public void initialize(URL location, ResourceBundle resources) {
@@ -48,6 +50,60 @@ public class SceneController{
         myImageView2.setImage(imageB);
 
         p.seg();
+
+        File f1 = new File("./images/brut0.jpg");
+        try {
+            img1 = ImageIO.read(f1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image1  = SwingFXUtils.toFXImage(img1,null);
+        processed1.setImage(image1);
+
+        File f2 = new File("./images/brut1.jpg");
+        try {
+            img2 = ImageIO.read(f2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image2  = SwingFXUtils.toFXImage(img2,null);
+        processed2.setImage(image2);
+
+        File f3 = new File("./images/brut2.jpg");
+        try {
+            img3 = ImageIO.read(f3);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image3  = SwingFXUtils.toFXImage(img3,null);
+        processed3.setImage(image3);
+
+        File f11 = new File("./images/0.jpg");
+        try {
+            img11 = ImageIO.read(f11);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image11  = SwingFXUtils.toFXImage(img11,null);
+        processed11.setImage(image11);
+
+        File f21 = new File("./images/1.jpg");
+        try {
+            img21 = ImageIO.read(f21);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image21  = SwingFXUtils.toFXImage(img21,null);
+        processed21.setImage(image21);
+
+        File f31 = new File("./images/2.jpg");
+        try {
+            img31 = ImageIO.read(f31);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Image image31  = SwingFXUtils.toFXImage(img31,null);
+        processed31.setImage(image31);
     }
     }
 

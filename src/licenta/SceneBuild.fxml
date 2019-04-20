@@ -14,8 +14,18 @@
     <ImageView fx:id="myImageView1" fitHeight="300.0" fitWidth="300.0" layoutX="510.0" layoutY="120.0" pickOnBounds="true" />
     <ImageView fx:id="myImageView2" fitHeight="300.0" fitWidth="300.0" layoutX="820.0" layoutY="120.0" pickOnBounds="true" />
 
+    <ImageView fx:id="processed1" fitHeight="50.0" fitWidth="50.0" layoutX="200.0" layoutY="490.0" pickOnBounds="true" />
+    <ImageView fx:id="processed2" fitHeight="50.0" fitWidth="50.0" layoutX="270.0" layoutY="490.0" pickOnBounds="true" />
+    <ImageView fx:id="processed3" fitHeight="50.0" fitWidth="50.0" layoutX="340.0" layoutY="490.0" pickOnBounds="true" />
+
+    <ImageView fx:id="processed11" fitHeight="50.0" fitWidth="50.0" layoutX="482.0" layoutY="490.0" pickOnBounds="true" />
+    <ImageView fx:id="processed21" fitHeight="50.0" fitWidth="50.0" layoutX="552.0" layoutY="490.0" pickOnBounds="true" />
+    <ImageView fx:id="processed31" fitHeight="50.0" fitWidth="50.0" layoutX="622.0" layoutY="490.0" pickOnBounds="true" />
+
     <Label layoutX="210.0" layoutY="90.0" text="Original Image" />
     <Label layoutX="520.0" layoutY="90.0" text="GrayScale Image" />
     <Label layoutX="830.0" layoutY="90.0" text="Binary Image" />
+    <Label layoutX="210.0" layoutY="450.0" text="The Initial Segmented images:" />
+    <Label layoutX="492.0" layoutY="450.0" text="The Final Segmented images:" />
 
 </AnchorPane>
