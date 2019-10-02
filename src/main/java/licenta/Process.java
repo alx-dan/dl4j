@@ -1,5 +1,5 @@
 package main.java.licenta;
-//alx
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
