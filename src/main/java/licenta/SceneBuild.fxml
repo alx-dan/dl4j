@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.licenta.SceneController">
+
+    <Button layoutX="291.0" layoutY="23.0" mnemonicParsing="false" onAction="#loadimg" text="Load Image" />
+    <Button layoutX="409.0" layoutY="23.0" mnemonicParsing="false" onAction="#processimg" text="Process Image" />
+
+    <ImageView fx:id="myImageView" fitHeight="300.0" fitWidth="300.0" layoutX="200.0" layoutY="120.0" pickOnBounds="true" />
+    <ImageView fx:id="myImageView1" fitHeight="300.0" fitWidth="300.0" layoutX="510.0" layoutY="120.0" pickOnBounds="true" />
+    <ImageView fx:id="myImageView2" fitHeight="300.0" fitWidth="300.0" layoutX="820.0" layoutY="120.0" pickOnBounds="true" />
+
+    <ImageView fx:id="processed1" fitHeight="50.0" fitWidth="50.0" layoutX="200.0" layoutY="516.0" pickOnBounds="true" />
+    <ImageView fx:id="processed2" fitHeight="50.0" fitWidth="50.0" layoutX="270.0" layoutY="516.0" pickOnBounds="true" />
+    <ImageView fx:id="processed3" fitHeight="50.0" fitWidth="50.0" layoutX="340.0" layoutY="516.0" pickOnBounds="true" />
+
+    <ImageView fx:id="processed11" fitHeight="50.0" fitWidth="50.0" layoutX="482.0" layoutY="516.0" pickOnBounds="true" />
+    <ImageView fx:id="processed21" fitHeight="50.0" fitWidth="50.0" layoutX="552.0" layoutY="516.0" pickOnBounds="true" />
+    <ImageView fx:id="processed31" fitHeight="50.0" fitWidth="50.0" layoutX="622.0" layoutY="516.0" pickOnBounds="true" />
+
+    <Label layoutX="103.0" layoutY="28.0" text="Please input 3 numbers" />
+    <Label layoutX="520.0" layoutY="90.0" text="GrayScale Image" />
+    <Label layoutX="830.0" layoutY="90.0" text="Binary Image" />
+    <Label layoutX="210.0" layoutY="476.0" text="Initial Segmented images:" />
+    <Label layoutX="492.0" layoutY="476.0" text="Final Segmented images:" />
+    <Label layoutX="220.0" layoutY="100.0" text="Original Image" />
+    <Label fx:id="nr_label" layoutX="39.0" layoutY="450.0" />
+
+</AnchorPane>
