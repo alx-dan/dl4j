@@ -1,4 +1,4 @@
-package main.java.licenta;
+package licenta;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -26,8 +26,8 @@ public class Process {
 
 
     public BufferedImage orig,gray,binar,img;
-    public int counter = 0 ;
-    private int nr = 0;
+    public int counter = 1 ;
+    private int nr = 1;
     private int id;
     private int []x1 = new int[2000]; // l t corner
     private int []x2 = new int[2000]; // r b corner

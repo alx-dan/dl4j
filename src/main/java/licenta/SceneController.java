@@ -1,4 +1,4 @@
-package main.java.licenta;
+package licenta;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -72,10 +72,17 @@ public class SceneController{
         String string = Integer.toString(p.counter);
         nr_label.setText(string);
 
+        File ferr = new File("./err/err.jpg");
+
         File f1 = new File("./images/brut0.jpg");
         try {
             img1 = ImageIO.read(f1);
         } catch (IOException e) {
+            try {
+                img1 = ImageIO.read(ferr);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
         Image image1  = SwingFXUtils.toFXImage(img1,null);
@@ -85,6 +92,11 @@ public class SceneController{
         try {
             img2 = ImageIO.read(f2);
         } catch (IOException e) {
+            try {
+                img2 = ImageIO.read(ferr);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
         Image image2  = SwingFXUtils.toFXImage(img2,null);
@@ -94,6 +106,11 @@ public class SceneController{
         try {
             img3 = ImageIO.read(f3);
         } catch (IOException e) {
+            try {
+                img3 = ImageIO.read(ferr);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
         Image image3  = SwingFXUtils.toFXImage(img3,null);
@@ -103,6 +120,11 @@ public class SceneController{
         try {
             img11 = ImageIO.read(f11);
         } catch (IOException e) {
+            try {
+                img11 = ImageIO.read(ferr);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
         Image image11  = SwingFXUtils.toFXImage(img11,null);
@@ -112,6 +134,11 @@ public class SceneController{
         try {
             img21 = ImageIO.read(f21);
         } catch (IOException e) {
+            try {
+                img21 = ImageIO.read(ferr);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
         Image image21  = SwingFXUtils.toFXImage(img21,null);
@@ -121,6 +148,11 @@ public class SceneController{
         try {
             img31 = ImageIO.read(f31);
         } catch (IOException e) {
+            try {
+                img31 = ImageIO.read(ferr);
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
             e.printStackTrace();
         }
         Image image31  = SwingFXUtils.toFXImage(img31,null);
