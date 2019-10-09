@@ -23,29 +23,27 @@
     <ImageView fx:id="processed11" fitHeight="50.0" fitWidth="50.0" layoutX="482.0" layoutY="516.0" pickOnBounds="true" />
     <ImageView fx:id="processed21" fitHeight="50.0" fitWidth="50.0" layoutX="552.0" layoutY="516.0" pickOnBounds="true" />
     <ImageView fx:id="processed31" fitHeight="50.0" fitWidth="50.0" layoutX="622.0" layoutY="516.0" pickOnBounds="true" />
-
-    <Label layoutX="103.0" layoutY="28.0" text="Please input 3 numbers" />
     <Label layoutX="520.0" layoutY="90.0" text="GrayScale Image" />
     <Label layoutX="830.0" layoutY="90.0" text="Binary Image" />
     <Label layoutX="210.0" layoutY="476.0" text="Initial Segmented images:" />
     <Label layoutX="492.0" layoutY="476.0" text="Final Segmented images:" />
     <Label layoutX="220.0" layoutY="100.0" text="Original Image" />
-    <Label fx:id="nr_label" alignment="CENTER" layoutX="304.0" layoutY="637.0" prefHeight="21.0" prefWidth="38.0" textAlignment="CENTER">
+    <Label fx:id="nr_label" alignment="CENTER" layoutX="331.0" layoutY="632.0" prefHeight="21.0" prefWidth="38.0" textAlignment="CENTER">
       <font>
-         <Font size="24.0" />
+         <Font size="30.0" />
       </font></Label>
-    <TextArea fx:id="text_area" editable="false" layoutX="196.0" layoutY="672.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="63.0" prefRowCount="1" prefWidth="377.0">
+    <TextArea fx:id="text_area" editable="false" layoutX="647.0" layoutY="618.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="63.0" prefRowCount="1" prefWidth="377.0">
       <font>
          <Font name="System Bold" size="30.0" />
       </font></TextArea>
-   <Label layoutX="196.0" layoutY="637.0" text="You wrote">
+   <Label layoutX="196.0" layoutY="632.0" text="You wrote">
       <font>
-         <Font size="24.0" />
+         <Font size="30.0" />
       </font>
    </Label>
-   <Label layoutX="346.0" layoutY="637.0" text="number/s. These are:">
+   <Label layoutX="369.0" layoutY="632.0" text="number/s. These are:">
       <font>
-         <Font size="24.0" />
+         <Font size="30.0" />
       </font>
    </Label>
     

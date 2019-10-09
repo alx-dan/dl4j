@@ -173,7 +173,7 @@ public class SceneController{
         String string = Integer.toString(p.counter);
         nr_label.setText(string);
 
-        //textarea fill friom file
+        //textarea fill from file
         Scanner s = null;
         try {
             s = new Scanner(new File("./str/out.txt"));
