@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
+
 public class Main extends Application {
 
     @Override
@@ -15,6 +17,7 @@ public class Main extends Application {
         primaryStage.setTitle("A.Craciunescu");
         primaryStage.setScene(new Scene(root, 1500, 900));
         primaryStage.show();
+
     }
 
 

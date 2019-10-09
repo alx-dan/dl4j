@@ -4,21 +4,23 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.Scanner;
 
 
 public class SceneController{
 
     @FXML
     public Label nr_label;
+
+    @FXML
+    public TextArea text_area;
 
     @FXML
     private ImageView myImageView,myImageView1,myImageView2,processed1,processed2,processed3,processed11,processed21,processed31;
@@ -30,7 +32,10 @@ public class SceneController{
 
     @FXML //for each fx:id=
     private void loadimg() {
-        //previous files cleanup
+        //previous files and text area cleanup
+
+        text_area.setText("");
+
         File dirImg = new File("./images/");
         for (File del: dirImg.listFiles())
             if (!del.isDirectory())
@@ -40,6 +45,16 @@ public class SceneController{
         for (File del: dirSeg.listFiles())
             if (!del.isDirectory())
                 del.delete();
+
+        File dirOut = new File("./str/");
+        for (File del: dirOut.listFiles())
+            if (!del.isDirectory())
+                del.delete();
+
+        try (PrintWriter out = new PrintWriter("./str/out.txt")) {
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         FileChooser file = new FileChooser();
         file.setInitialDirectory(new File("D:\\personale\\fac\\lic"));
@@ -67,10 +82,6 @@ public class SceneController{
         myImageView2.setImage(imageB);
 
         p.seg();
-
-        //boxes counter
-        String string = Integer.toString(p.counter);
-        nr_label.setText(string);
 
         File ferr = new File("./err/err.jpg");
 
@@ -157,6 +168,22 @@ public class SceneController{
         }
         Image image31  = SwingFXUtils.toFXImage(img31,null);
         processed31.setImage(image31);
+
+        //boxes counter
+        String string = Integer.toString(p.counter);
+        nr_label.setText(string);
+
+        //textarea fill friom file
+        Scanner s = null;
+        try {
+            s = new Scanner(new File("./str/out.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        while (s.hasNextLine()) {
+            text_area.appendText(s.next());
+        }
     }
     }
 

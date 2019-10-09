@@ -8,15 +8,14 @@ import org.nd4j.linalg.factory.Nd4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 
-public class dl4j  {
+public class dl4j {
 
     private static Logger log = LoggerFactory.getLogger(dl4j.class);
 
-    dl4j(){
+    dl4j(String x){
 
 //Load the NN model
         File locationToSave = new File("MyMultiLayerNetwork.zip");
@@ -35,7 +34,7 @@ public class dl4j  {
         }
 
 //parse csv and pass to NN model
-        File file = new File("./segm/test0.csv");
+        File file = new File(x);
         String fileString = null;
         try {
             fileString = FileUtils.readFileToString(file, (Charset) null);
@@ -52,7 +51,15 @@ public class dl4j  {
 // get predictions from model
         INDArray networkOutput = restored.output(features);
         int idx = Nd4j.getExecutioner().execAndReturn(new IAMax(networkOutput)).getFinalResult();
-        System.out.println(idx);
+        System.out.println("the number is " + idx);
+
+        try {
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("./str/out.txt", true)));
+            out.print(idx);
+            out.close();
+        } catch (IOException e) {
+        }
+
     }
 }
 

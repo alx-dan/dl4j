@@ -121,13 +121,13 @@ public class Process {
 // image segmentation
 
     public void seg() {
-          System.out.println("Height & Width: " + binar.getHeight() + " " + binar.getWidth());
+          //System.out.println("Height & Width: " + binar.getHeight() + " " + binar.getWidth());
             for(int i = 0; i < binar.getWidth(); i++){
             for(int j = 0; j < binar.getHeight(); j++){
                 if(!visited(i, j)){
                     counter = nr;
-                    System.out.println("box coordinates(pix): " + i + "/" + j);
-                    System.out.println("you wrote " + counter + " number/s");
+                    //System.out.println("box coordinates(pix): " + i + "/" + j);
+                    //System.out.println("you wrote " + counter + " number/s");
                     clr(id);
                     box(i, j, id);
                     fin(id);
@@ -138,7 +138,7 @@ public class Process {
                 }
             }
         }
-        System.out.println(x1[0] + " " + y1[0] + " " + x2[0] + " " + y2[0]);
+        //System.out.println(x1[0] + " " + y1[0] + " " + x2[0] + " " + y2[0]);
     }
 
     private Boolean visited (int x, int y){
@@ -294,6 +294,8 @@ public class Process {
             }
             writter.write(sb.substring(0,sb.length() - 1 ));
         }catch (FileNotFoundException e){System.out.println(e.getMessage());}
+        String xcsv = "./segm/test" + id + ".csv";
+        new dl4j(xcsv);
     }
 
     public Process(BufferedImage img) { orig = img;}
