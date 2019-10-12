@@ -1,7 +1,6 @@
 package licenta;
 
 import javafx.embed.swing.SwingFXUtils;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -35,6 +34,17 @@ public class SceneController{
         //previous files and text area cleanup
 
         text_area.setText("");
+        nr_label.setText("");
+
+        myImageView.setImage(null);
+        myImageView1.setImage(null);
+        myImageView2.setImage(null);
+        processed1.setImage(null);
+        processed2.setImage(null);
+        processed3.setImage(null);
+        processed11.setImage(null);
+        processed21.setImage(null);
+        processed31.setImage(null);
 
         File dirImg = new File("./images/");
         for (File del: dirImg.listFiles())
@@ -55,6 +65,8 @@ public class SceneController{
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+
 
         FileChooser file = new FileChooser();
         file.setInitialDirectory(new File("D:\\personale\\fac\\lic"));
